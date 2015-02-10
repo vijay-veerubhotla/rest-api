@@ -20,10 +20,10 @@ Note: All the data is case-sensitive. Emails, names and other values are case se
 |tags|Unique identifiers added to contact, for easy management of contacts. This is not applicable for companies.|list|no|no| Tag name should start with an alphabet and can not contain special characters other than underscore and space.|
 |lead_score|Score of contact. This is not applicable for companies.|integer|no|no|Any positive integer|
 |star_value|Rating of contact (Max value 5). This is not applicable for companies.|short|no|no|0 to 5|
-|properties|Contact properties are represented by list of JSON objects, each JSON object should follow the prototype shown.  Custom fields will have type as CUSTOM and others will have type as SYSTEM.|List of JSON objects|no|first_name is mandatory|
-|campaignStatus|Information about the campaigns ran on that contact like name, status, start time, end time of campaign|List of JSONObjects|Yes|Only if this contact has campaigns|N/A|
-|unsubscribeStatus|Information about the campaign from which the contact is unsubscribed.|List of JSONObjects|Yes|Only if this contact has campaigns|N/A|
-|emailBounceStatus|Information about the email bounce and spam while running the campaign|List of JOSNObjects|Yes|Only if this conatct has campaigns|N/A|
+|properties|Contact properties are represented by list of JSON objects, each JSON object should follow the prototype shown. Custom fields will have type as CUSTOM and others will have type as SYSTEM.|List of JSON objects|no|first_name is mandatory|
+|campaignStatus|Information about the campaigns that are run on the contact, like name, status, start time, end time of campaign|List of JSONObjects|Yes|Only if this contact has campaigns on it|N/A|
+|unsubscribeStatus|Information about the campaign from which the contact has unsubscribed.|List of JSONObjects|Yes|Only if this contact has campaigns on it|N/A|
+|emailBounceStatus|Information about the email bounce and spam that has happened while running the campaign|List of JOSNObjects|Yes|Only if this conatct has campaigns on it|N/A|
 
 ###Contact JSON Example
 
@@ -376,7 +376,7 @@ Accepts contact JSON as post data along with the credentials of domain User (Use
 Method: PUT 
 
 
-Accepts contact object with valid id parameter in it, where ‘id’  refers to the contact that is to be updated. While updating the contact, If that contact is having campaigns, we should include the fields emailBounceStatus, campaignStatus and unsubscribeStatus in the contact object (The data in these fields should be same as it is in the retrieved contact object). 
+Accepts contact object with valid id parameter in it, where ‘id’  refers to the contact that is to be updated. While updating the contact, if that contact has campaigns on it, we should include the fields - 'emailBounceStatus', 'campaignStatus' and 'unsubscribeStatus' in the contact object (The data in these fields should be the same as it is in the retrieved contact object.). 
 
 ###Acceptable request Representation:
 ```javascript
